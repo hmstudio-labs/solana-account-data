@@ -70,6 +70,42 @@ fmt.Printf("Base Mint: %s\n", amm.BaseMint)
 fmt.Printf("LP Supply: %d\n", amm.LpSupply)
 ```
 
+### Find PumpFun Bonding Curve Address
+
+```go
+import solanaaccountdata "github.com/hmstudio-labs/solana-account-data"
+
+// Get the PDA for a bonding curve account
+mintPublicKey := solana.PublicKey{} // Your token mint public key
+bondingCurveAddress, err := solanaaccountdata.FindPumpfunBondingCurveAddress(mintPublicKey)
+if err != nil {
+    // Handle error
+}
+
+fmt.Printf("Bonding Curve Address: %s\n", bondingCurveAddress)
+```
+
+### Find PumpFun AMM Market Account
+
+```go
+import solanaaccountdata "github.com/hmstudio-labs/solana-account-data"
+
+// Find AMM market accounts by mint
+mintPublicKey := solana.PublicKey{} // Your token mint public key
+rpcClient := rpc.New(rpc.MainnetRPCEndpoint) // Initialize RPC client
+
+accounts, err := solanaaccountdata.FindPumpfunAmmMarketAddress(context.Background(), rpcClient, mintPublicKey)
+if err != nil {
+    // Handle error
+}
+
+// Process found accounts
+for _, account := range accounts {
+    fmt.Printf("AMM Market Account: %s\n", account.Pubkey)
+    // Parse account data as needed
+}
+```
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
