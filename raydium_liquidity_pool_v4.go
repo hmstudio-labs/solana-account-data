@@ -8,7 +8,7 @@ import (
 )
 
 var (
-	raydiumLiquidityPoolV4ProgramId = solana.MustPublicKeyFromBase58("pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA")
+	raydiumLiquidityPoolV4ProgramId = solana.MustPublicKeyFromBase58("675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8")
 )
 
 func FindRaydiumLiquidityPoolV4MarketAddress(ctx context.Context, cli *rpc.Client, baseMint solana.PublicKey, quoteMint solana.PublicKey) (rpc.GetProgramAccountsResult, error) {
