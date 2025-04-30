@@ -13,7 +13,7 @@ var (
 
 func FindMeteoraDLMMMarketAddress(ctx context.Context, cli *rpc.Client, tokenXMint solana.PublicKey, tokenYMint solana.PublicKey) (rpc.GetProgramAccountsResult, error) {
 	var layout MeteoraLayout
-	result, err := cli.GetProgramAccountsWithOpts(context.Background(), raydiumLiquidityPoolV4ProgramId, &rpc.GetProgramAccountsOpts{
+	result, err := cli.GetProgramAccountsWithOpts(context.Background(), meteoradlmmProgramId, &rpc.GetProgramAccountsOpts{
 		Filters: []rpc.RPCFilter{
 			{DataSize: layout.Span()},
 
