@@ -8,12 +8,12 @@ import (
 )
 
 var (
-	meteoradlmmProgramId = solana.MustPublicKeyFromBase58("LBUZKhRxPF3XUpBCjp4YzTKgLccjZhTSDM9YuVaPwxo")
+	MeteoraDLMMProgramId = solana.MustPublicKeyFromBase58("LBUZKhRxPF3XUpBCjp4YzTKgLccjZhTSDM9YuVaPwxo")
 )
 
 func FindMeteoraDLMMMarketAddress(ctx context.Context, cli *rpc.Client, tokenXMint solana.PublicKey, tokenYMint solana.PublicKey) (rpc.GetProgramAccountsResult, error) {
 	var layout MeteoraLayout
-	result, err := cli.GetProgramAccountsWithOpts(context.Background(), meteoradlmmProgramId, &rpc.GetProgramAccountsOpts{
+	result, err := cli.GetProgramAccountsWithOpts(context.Background(), MeteoraDLMMProgramId, &rpc.GetProgramAccountsOpts{
 		Filters: []rpc.RPCFilter{
 			{DataSize: layout.Span()},
 

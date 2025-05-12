@@ -8,11 +8,11 @@ import (
 )
 
 var (
-	pumpAMMProgramId = solana.MustPublicKeyFromBase58("pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA")
+	PumpAMMProgramId = solana.MustPublicKeyFromBase58("pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA")
 )
 
 func FindPumpfunAmmMarketAddress(ctx context.Context, cli *rpc.Client, mintPublicKey solana.PublicKey) (rpc.GetProgramAccountsResult, error) {
-	result, err := cli.GetProgramAccountsWithOpts(context.Background(), pumpAMMProgramId, &rpc.GetProgramAccountsOpts{
+	result, err := cli.GetProgramAccountsWithOpts(context.Background(), PumpAMMProgramId, &rpc.GetProgramAccountsOpts{
 		Filters: []rpc.RPCFilter{
 			// {DataSize: 300},
 			{
