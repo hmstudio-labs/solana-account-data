@@ -14,7 +14,7 @@ var (
 func FindPumpfunAmmMarketAddress(ctx context.Context, cli *rpc.Client, mintPublicKey solana.PublicKey) (rpc.GetProgramAccountsResult, error) {
 	result, err := cli.GetProgramAccountsWithOpts(context.Background(), pumpAMMProgramId, &rpc.GetProgramAccountsOpts{
 		Filters: []rpc.RPCFilter{
-			{DataSize: 211},
+			// {DataSize: 300},
 			{
 				Memcmp: &rpc.RPCFilterMemcmp{
 					Offset: 43,
