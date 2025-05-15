@@ -12,7 +12,7 @@ var (
 )
 
 func FindMeteoraAMMMarketAddress(ctx context.Context, cli *rpc.Client, tokenAMint solana.PublicKey, tokenBMint solana.PublicKey) (rpc.GetProgramAccountsResult, error) {
-	tokenAMint, tokenBMint = sortPubkey(tokenAMint, tokenBMint)
+	tokenBMint, tokenAMint = sortPubkey(tokenAMint, tokenBMint)
 	var layout MeteoraAmmLayout
 	result, err := cli.GetProgramAccountsWithOpts(context.Background(), MeteoraAMMProgramId, &rpc.GetProgramAccountsOpts{
 		Filters: []rpc.RPCFilter{
