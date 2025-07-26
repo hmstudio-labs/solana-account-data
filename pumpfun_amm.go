@@ -25,3 +25,13 @@ func FindPumpfunAmmMarketAddress(ctx context.Context, cli *rpc.Client, mintPubli
 	})
 	return result, err
 }
+
+func FindPumpfunAmmCoinCreatorVault(creator solana.PublicKey, mintPublicKey solana.PublicKey) (solana.PublicKey, solana.PublicKey) {
+	creatorVaultAuthority, _, _ := solana.FindProgramAddress([][]byte{
+		[]byte("creator_vault"), creator[:],
+	},
+		PumpAMMProgramId,
+	)
+	ata, _, _ := solana.FindAssociatedTokenAddress(creatorVaultAuthority, mintPublicKey)
+	return creatorVaultAuthority, ata
+}
