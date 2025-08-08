@@ -8,7 +8,8 @@ import (
 )
 
 var (
-	PumpAMMProgramId = solana.MustPublicKeyFromBase58("pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA")
+	PumpAMMProgramId                   = solana.MustPublicKeyFromBase58("pAMMBay6oceH9fJKBRHGP5D4bD4sWpmSwMn52FMfXEA")
+	PumpfunAMMCreatePoolDiscriminators = []byte{233, 146, 209, 142, 207, 104, 64, 188}
 )
 
 func FindPumpfunAmmMarketAddress(ctx context.Context, cli *rpc.Client, mintPublicKey solana.PublicKey) (rpc.GetProgramAccountsResult, error) {
