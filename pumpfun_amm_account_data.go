@@ -16,6 +16,8 @@ type PumpfunAMM struct {
 	PoolQuoteTokenAccount sol.PublicKey
 	LpSupply              uint64
 	CoinCreator           sol.PublicKey
+	IsMayhemMode          bool
+	IsCashbackCoin        bool
 }
 
 func (obj *PumpfunAMM) UnmarshalWithDecoder(decoder *bin.Decoder) (err error) {
@@ -31,6 +33,8 @@ func (obj *PumpfunAMM) UnmarshalWithDecoder(decoder *bin.Decoder) (err error) {
 	decoder.Decode(&obj.PoolQuoteTokenAccount)
 	decoder.Decode(&obj.LpSupply)
 	decoder.Decode(&obj.CoinCreator)
+	decoder.Decode(&obj.IsMayhemMode)
+	decoder.Decode(&obj.IsCashbackCoin)
 	return nil
 }
 
