@@ -39,11 +39,13 @@ func (obj *PumpfunAMM) UnmarshalWithDecoder(decoder *bin.Decoder) (err error) {
 }
 
 type PumpfunAMMCreatePoolLayout struct {
-	Discriminator uint64 // 账户类型识别码，用于区分不同类型的账户，占用 8 字节
-	Index         uint16
-	BaseAmountIn  uint64
-	QuoteAmountIn uint64
-	CoinCreator   sol.PublicKey
+	Discriminator  uint64 // 账户类型识别码，用于区分不同类型的账户，占用 8 字节
+	Index          uint16
+	BaseAmountIn   uint64
+	QuoteAmountIn  uint64
+	CoinCreator    sol.PublicKey
+	IsMayhemMode   bool
+	IsCashbackCoin bool
 }
 
 func (obj *PumpfunAMMCreatePoolLayout) UnmarshalWithDecoder(decoder *bin.Decoder) (err error) {
@@ -52,5 +54,7 @@ func (obj *PumpfunAMMCreatePoolLayout) UnmarshalWithDecoder(decoder *bin.Decoder
 	decoder.Decode(&obj.BaseAmountIn)
 	decoder.Decode(&obj.QuoteAmountIn)
 	decoder.Decode(&obj.CoinCreator)
+	decoder.Decode(&obj.IsMayhemMode)
+	decoder.Decode(&obj.IsCashbackCoin)
 	return nil
 }
